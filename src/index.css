@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animaciones personalizadas */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    color: #ff0040;
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    color: #00ff40;
+  }
+  60% {
+    transform: translate(2px, 2px);
+    color: #4000ff;
+  }
+  80% {
+    transform: translate(2px, -2px);
+    color: #ff0040;
+  }
+  100% {
+    transform: translate(0);
+    color: #ff0040;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes static {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Clases utilitarias personalizadas */
+.animate-glitch {
+  animation: glitch 1s infinite;
+}
+.animate-shake {
+  animation: shake 2s infinite;
+}
+.animate-flicker {
+  animation: flicker 2s infinite;
+}
+.animate-static {
+  animation: static 0.15s infinite;
+}
+.animate-pulse-red {
+  animation: pulse 1.5s infinite;
+  color: #ff4444;
+}

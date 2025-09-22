@@ -1,0 +1,586 @@
+/* === Reset y base === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  background: linear-gradient(180deg, #f5f5f5 0%, #e8e8e8 100%);
+  overflow-x: hidden;
+  color: #222;
+}
+
+.gallery-container {
+  perspective: 1000px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.gallery-space {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  transform-style: preserve-3d;
+  background: linear-gradient(180deg, #f8f8f8 0%, #efefef 50%, #e5e5e5 100%);
+}
+
+/* === Suelo y luces === */
+.floor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: repeating-linear-gradient(
+      90deg,
+      #b8b8b8 0 2px,
+      transparent 2px 120px
+    ),
+    repeating-linear-gradient(0deg, #b8b8b8 0 2px, transparent 2px 120px),
+    linear-gradient(180deg, #c5c5c5 0%, #a8a8a8 100%);
+  transform: rotateX(85deg) translateZ(-200px);
+  opacity: 0.8;
+}
+
+.ceiling-lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0 10%,
+    rgba(255, 255, 255, 0.3) 10% 20%
+  );
+  background-size: 20% 100%;
+}
+
+.light-beam {
+  position: absolute;
+  width: 60px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(20px);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.1)
+  );
+}
+.light-beam:nth-child(1) {
+  top: 40px;
+  left: 15%;
+  animation: flicker 3s infinite;
+}
+.light-beam:nth-child(2) {
+  top: 40px;
+  left: 35%;
+  animation: flicker 4s infinite 0.5s;
+}
+.light-beam:nth-child(3) {
+  top: 40px;
+  left: 55%;
+  animation: flicker 3.5s infinite 1s;
+}
+.light-beam:nth-child(4) {
+  top: 40px;
+  right: 25%;
+  animation: flicker 4.5s infinite 1.5s;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* === Instalaciones base === */
+.installation {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+/* === 400 Bad Request === */
+.error-400 {
+  left: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.crumpled-papers {
+  width: 80px;
+  height: 60px;
+  border-radius: 20px 5px 15px 8px;
+  background: radial-gradient(circle at 20% 30%, #f5f5f5 20%, transparent 25%),
+    radial-gradient(circle at 60% 50%, #e8e8e8 15%, transparent 20%),
+    radial-gradient(circle at 40% 70%, #f0f0f0 18%, transparent 23%), #ddd;
+  animation: shake 2s ease-in-out infinite;
+}
+.old-monitor {
+  width: 60px;
+  height: 45px;
+  margin-top: 10px;
+  background: #2a2a2a;
+  border: 2px solid #1a1a1a;
+  border-radius: 3px;
+}
+.monitor-screen {
+  width: 50px;
+  height: 35px;
+  margin: 5px auto;
+  background: #000;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+.glitch-text {
+  font-size: 6px;
+  color: #ff0040;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: glitch 1s infinite;
+}
+@keyframes glitch {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+    color: #ff0040;
+  }
+  20% {
+    transform: translate(-48%, -52%);
+  }
+  40% {
+    transform: translate(-52%, -48%);
+    color: #00ff40;
+  }
+  60% {
+    transform: translate(-50%, -51%);
+    color: #4000ff;
+  }
+  80% {
+    transform: translate(-51%, -49%);
+  }
+}
+
+/* === 401 Unauthorized === */
+.error-401 {
+  left: 20%;
+  top: 45%;
+  transform: translateY(-50%);
+}
+.pet-wall {
+  width: 70px;
+  height: 80px;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  background: linear-gradient(
+      45deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 60%
+    ),
+    rgba(200, 200, 200, 0.4);
+  position: relative;
+}
+.tape-strips {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    #d4af37 0 8px,
+    transparent 8px 12px
+  );
+}
+.metal-lock {
+  width: 15px;
+  height: 20px;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(180deg, #c0c0c0 0%, #808080 100%);
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.blue-led {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #0080ff;
+  box-shadow: 0 0 6px #0080ff;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: blink-blue 2s infinite;
+}
+@keyframes blink-blue {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0.3;
+  }
+}
+
+/* === 403 Forbidden === */
+.error-403 {
+  right: 25%;
+  top: 40%;
+  transform: translateY(-50%);
+}
+.cable-cluster {
+  width: 60px;
+  height: 70px;
+  position: relative;
+}
+.ethernet-cable,
+.usb-cable {
+  position: absolute;
+  width: 3px;
+  height: 40px;
+  border-radius: 2px;
+}
+.ethernet-cable {
+  background: #ff4444;
+  left: 10px;
+  top: 0;
+  transform: rotate(-15deg);
+  animation: sway 3s infinite;
+}
+.usb-cable {
+  background: #333;
+  right: 15px;
+  top: 5px;
+  transform: rotate(20deg);
+  animation: sway 3s infinite 0.5s;
+}
+.red-led-strip {
+  width: 50px;
+  height: 2px;
+  position: absolute;
+  left: 5px;
+  bottom: 10px;
+  background: linear-gradient(90deg, #ff0000 0%, #ff4444 50%, #ff0000 100%);
+  animation: pulse-red 1.5s infinite;
+}
+@keyframes pulse-red {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 8px #f00;
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 4px #f00;
+  }
+}
+.wooden-frame {
+  width: 45px;
+  height: 35px;
+  border: 2px solid #654321;
+  border-radius: 2px;
+  background: #8b4513;
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+}
+.frame-led {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #f00;
+  border-radius: 2px;
+  animation: frame-glow 2s infinite;
+}
+@keyframes frame-glow {
+  0%,
+  100% {
+    box-shadow: inset 0 0 8px #f00;
+  }
+  50% {
+    box-shadow: inset 0 0 4px #f00;
+  }
+}
+
+/* === 404 Not Found === */
+.error-404 {
+  left: 35%;
+  top: 55%;
+  transform: translateY(-50%);
+}
+.photo-frames {
+  display: flex;
+  gap: 8px;
+}
+.frame {
+  width: 25px;
+  height: 35px;
+  border-radius: 2px;
+  border: 1px solid #666;
+  background: linear-gradient(45deg, #000 0%, #333 50%, #000 100%);
+}
+.frame.white {
+  background: linear-gradient(45deg, #fff 0%, #f0f0f0 50%, #fff 100%);
+  border-color: #ddd;
+}
+.led-lamp {
+  width: 6px;
+  height: 3px;
+  border-radius: 50% 50% 0 0;
+  background: #fffa;
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: lamp-flicker 4s infinite;
+}
+.led-lamp::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 15px;
+  top: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 255, 170, 0.3) 0%,
+    transparent 70%
+  );
+}
+@keyframes lamp-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  75% {
+    opacity: 0.8;
+  }
+}
+.not-found-text {
+  position: absolute;
+  top: -25px;
+  left: -10px;
+  font-size: clamp(6px, 1.8vw, 8px);
+  background: #fff;
+  color: #333;
+  padding: 2px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* === 500 Internal Server Error === */
+.error-500 {
+  right: 15%;
+  top: 35%;
+  transform: translateY(-50%);
+}
+.tv-tower {
+  width: 70px;
+  height: 90px;
+  position: relative;
+}
+.old-tv {
+  width: 45px;
+  height: 35px;
+  margin-bottom: 5px;
+  border: 1px solid #1a1a1a;
+  border-radius: 3px;
+  background: #2a2a2a;
+  position: relative;
+}
+.tv-screen {
+  width: 35px;
+  height: 25px;
+  margin: 5px auto;
+  background: #000;
+  border-radius: 2px;
+  position: relative;
+}
+.tv-static {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, #fff 1px, transparent 2px),
+    radial-gradient(circle at 70% 80%, #fff 1px, transparent 2px),
+    radial-gradient(circle at 20% 70%, #fff 1px, transparent 2px), #000;
+  animation: static 0.1s linear infinite;
+}
+@keyframes static {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+.hidden-red-led {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(255, 0, 0, 0.2) 50%,
+    transparent 60%
+  );
+  animation: red-pulse 3s infinite;
+}
+@keyframes red-pulse {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.stack-trace {
+  position: absolute;
+  top: -10px;
+  right: -20px;
+  width: 40px;
+  height: 20px;
+  font-size: clamp(6px, 1.8vw, 8px);
+  background: #fff;
+  color: #f00;
+  padding: 2px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* === Animaciones compartidas === */
+@keyframes shake {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+}
+
+/* === Texto y etiquetas === */
+.gallery-title {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(16px, 3vw, 24px);
+  font-weight: bold;
+  color: #222;
+  z-index: 10;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.error-label {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(8px, 2vw, 10px);
+  background: rgba(255, 255, 255, 0.95);
+  color: #444;
+  padding: 3px 6px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+}
+.exhibition-info {
+  position: absolute;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 260px;
+  font-size: clamp(12px, 2.5vw, 14px);
+  font-style: italic;
+  color: #555;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  line-height: 1.4;
+}
+
+/* === Layout responsivo === */
+@media (max-width: 1024px) {
+  .installation {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-space {
+    height: auto;
+    padding-bottom: 150px;
+  }
+  .installation {
+    position: relative;
+    margin: 40px auto;
+    transform: scale(0.85);
+  }
+  .gallery-title {
+    top: 10px;
+  }
+  .exhibition-info {
+    position: relative;
+    bottom: auto;
+    margin: 20px auto;
+    max-width: 90%;
+  }
+  .floor {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .installation {
+    transform: scale(0.75);
+    margin: 25px auto;
+  }
+  .gallery-title {
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+  }
+  .error-label {
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+  .exhibition-info {
+    font-size: 12px;
+    padding: 8px;
+  }
+}

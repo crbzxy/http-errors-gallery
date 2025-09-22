@@ -1,0 +1,132 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Custom Animations === */
+@layer utilities {
+  @keyframes glitch {
+    0%,
+    100% {
+      transform: translate(-50%, -50%);
+      color: #ff0040;
+    }
+    20% {
+      transform: translate(-48%, -52%);
+      color: #ff0040;
+    }
+    40% {
+      transform: translate(-52%, -48%);
+      color: #00ff40;
+    }
+    60% {
+      transform: translate(-50%, -51%);
+      color: #4000ff;
+    }
+    80% {
+      transform: translate(-51%, -49%);
+      color: #ff0040;
+    }
+  }
+  .animate-glitch {
+    animation: glitch 1s ease-in-out infinite;
+  }
+
+  @keyframes flicker {
+    0%,
+    100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  .animate-flicker {
+    animation: flicker 3s ease-in-out infinite;
+  }
+
+  @keyframes shake {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-2deg);
+    }
+    75% {
+      transform: rotate(2deg);
+    }
+  }
+  .animate-shake {
+    animation: shake 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-red {
+    0%,
+    100% {
+      opacity: 1;
+      box-shadow: 0 0 8px #ff0000;
+    }
+    50% {
+      opacity: 0.6;
+      box-shadow: 0 0 4px #ff0000;
+    }
+  }
+  .animate-pulse-red {
+    animation: pulse-red 1.5s ease-in-out infinite;
+  }
+
+  @keyframes static-noise {
+    0%,
+    100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.4;
+    }
+  }
+  .animate-static {
+    animation: static-noise 0.2s linear infinite;
+  }
+}
